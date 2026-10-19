@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ABOUT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+
+    <h1 class="logo">EmoColor</h1>
+
+        <button
+    class="hamburger"
+    id="hamburger"
+    type="button"
+    aria-label="メニューを開く"
+    aria-expanded="false"
+    aria-controls="nav"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+    <nav id="nav">
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="emotion.html">Emotion</a></li>
+            <li><a href="paint.html">Paint</a></li>
+            <li><a href="share.html">Share</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+<body>
+<main> 
+    <h1>このサイトについて</h1>
+    <p>一日の感情を色によって可視化したWebサイトです。</p>
+    <br>
+    <p>自身の感情がどのように生まれたか、どのような変化をしたのかを出来事とともにまとめています。</p>
+    <br>
+    <p>色日記のように記録していき振り返っていくことで感情と向き合うことを目的としています。</p>
+</main>
+<script>
+const colors = [
+    "#FFD6D6",
+    "#A7C7E7",
+    "#FFB347",
+    "#FF6961",
+    "#77DD77",
+    "#CDB4DB"
+];
+
+let index = 0;
+
+/* 背景初期色 */
+document.body.style.backgroundColor = colors[0];
+
+/* スプラッシュ */
+window.addEventListener("load", () => {
+    const splash = document.getElementById("splash");
+
+    if (sessionStorage.getItem("visited")) {
+        splash.style.display = "none";
+    } else {
+        sessionStorage.setItem("visited", "true");
+
+        setTimeout(() => {
+            splash.classList.add("hide");
+
+            setTimeout(() => {
+                splash.style.display = "none";
+            }, 1000);
+
+        }, 3000);
+    }
+});
+
+/* 背景色変更 */
+setInterval(() => {
+    index = (index + 1) % colors.length;
+    document.body.style.backgroundColor = colors[index];
+}, 5000);
+</script>
+<script src="menu.js"></script>
+</body>

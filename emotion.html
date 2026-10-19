@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CONTENT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+
+    <h1 class="logo">EmoColor</h1>
+        <button
+    class="hamburger"
+    id="hamburger"
+    type="button"
+    aria-label="メニューを開く"
+    aria-expanded="false"
+    aria-controls="nav"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+    <nav id="nav">
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="emotion.html">Emotion</a></li>
+            <li><a href="paint.html">Paint</a></li>
+            <li><a href="share.html">Share</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+<main>
+    <h1>ギャラリー</h1>
+    <p>一日の感情</p>
+</div>
+
+</div>
+<div class="image-grid">
+    <img src="images/1st.png" alt="画像1">
+    <p>
+        6月19日（金）の出来事
+        <br>1限からあるので気分がすぐれない。
+        <br>4限が休講になったことで課題に取り組む時間がとれたことで上機嫌になった。<br>
+    </p>
+    <img src="images/2nd.png" alt="画像2">
+    <p>
+        6月20日（土）の出来事<br>
+        バイトが夜から入っているが朝から雨が降っているため不安になる。
+        <br>なんとか止んでほしいと祈ったが叶わず且つ大雨だったため終始不機嫌だった。
+        <br>終わりが近づくとだんだん元気になる。    </p>
+    <img src="images/3rd.png" alt="画像3">
+    <p>
+        6月21日（日）の出来事<br>
+        バイト終わりのご飯や風呂は一番幸せを感じた。
+        <br>昼過ぎまで寝ていることもしばしば。
+        <br>日曜日が終わることに虚無感を覚えるまま一日が終わる。
+    </p>
+    <img src="images/4th.png" alt="画像4">
+    <p>
+        6月22日（月）の出来事<br>
+        朝から外に出るのを躊躇うほどとても暑かった。
+        <br>通学中の電車内は多くの人で混雑しており、息苦しさを感じた。
+        <br>
+    </p>
+    <img src="images/5th.png" alt="画像5">
+    <p>
+        6月24日（水）の出来事<br>
+        授業がない日なので気分が良かった。
+        <br>昼から課題に取り組んだり少しの睡眠を取ることができた。
+        <br>翌日は1限から授業がある木曜日だった為、少し気が重いまま眠りについた。
+    </p>
+</div>
+<body>
+    <script>
+const colors = [
+    "#FFD6D6",
+    "#A7C7E7",
+    "#FFB347",
+    "#FF6961",
+    "#77DD77",
+    "#CDB4DB"
+];
+
+let index = 0;
+
+/* 背景初期色 */
+document.body.style.backgroundColor = colors[0];
+
+/* スプラッシュ */
+window.addEventListener("load", () => {
+    const splash = document.getElementById("splash");
+
+    if (sessionStorage.getItem("visited")) {
+        splash.style.display = "none";
+    } else {
+        sessionStorage.setItem("visited", "true");
+
+        setTimeout(() => {
+            splash.classList.add("hide");
+
+            setTimeout(() => {
+                splash.style.display = "none";
+            }, 1000);
+
+        }, 3000);
+    }
+});
+
+/* 背景色変更 */
+setInterval(() => {
+    index = (index + 1) % colors.length;
+    document.body.style.backgroundColor = colors[index];
+}, 5000);
+</script>
+
+<script src="menu.js"></script>
+</body>
+</html>

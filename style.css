@@ -1,0 +1,458 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+body {
+    transition: background-color 1.5s ease-in-out;
+    font-size: 22px;
+    font-family: "Mochiy Pop One", sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+header{
+background-color: rgb(255, 246, 246);
+padding: 30px;
+text-align: center;
+display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:25px 40px;
+}
+header h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+header nav ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+section{
+    height: 1000px;
+}
+
+.page-index{
+    main {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+}
+.hero img{
+    width: 100%;
+}
+.about{
+    background-color: rgb(251, 247, 244);
+    padding: 0px;
+    text-align: center;
+}
+footer{
+    background-color: rgb(251, 247, 244);
+    text-align: center;
+    padding: 30px;
+}
+
+.btn {
+    background-color: lightgray;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.box {
+    position: relative; /* 追加 */
+
+    width: 300px;
+    height: 150px;
+
+    background-color: orange;
+
+    margin: 0 auto;
+    text-align: center;
+
+    border-radius: 20px; /* 角を丸くする */
+
+    transition: 0.3s;
+
+    display: flex;              /* 文字を中央に */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+.box:hover {
+    background-color: red;
+    color: white;
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+/* 吹き出しのしっぽ */
+.box::after {
+    content: "";
+    position: absolute;
+
+    right: -20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-width: 15px 0 15px 20px;
+    border-style: solid;
+    border-color: transparent transparent transparent orange;
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+/* ホバー時にしっぽも赤く */
+.box:hover::after {
+    border-color: transparent transparent transparent red;
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+.card {
+    width: 250px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background-color: #87ceeb;
+    transform: scale(1.05);
+}
+
+/* スプラッシュ画面 */
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    animation: fadeOut 1s ease 2s forwards;
+}
+
+/* ロゴ */
+.logo {
+    color: white;
+    font-size: 4rem;
+    letter-spacing: 0.2em;
+
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* メインコンテンツ */
+#content {
+    opacity: 0;
+    animation: showContent 1s ease 2.8s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes showContent {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main h1,
+main p {
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列 */
+    gap: 20px; /* 画像間の余白 */
+    max-width: 800px;
+    margin: 0 auto; /* 中央配置 */
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* 画像比率を保ちながら枠いっぱいに表示 */
+    display: block;
+    opacity: 0;
+    animation: floatIn 1.5s ease forwards;
+}
+
+.mochiy-pop-one-regular {
+  font-family: "Mochiy Pop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+.hamburger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* 3本線のデザイン */
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px 0;
+    border-radius: 3px;
+    background: #333;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* スマートフォン用 */
+@media screen and (max-width: 768px) {
+    header {
+        position: relative;
+        padding: 15px 20px;
+        gap: 12px;
+    }
+
+    header h1 {
+        font-size: 28px;
+        margin-bottom: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* メニューを閉じた状態 */
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: auto;
+        z-index: 1000;
+        background: rgb(255, 246, 246);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ボタンを押したときに表示 */
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 14px 20px;
+    }
+
+    header nav ul li a:hover {
+        background: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* =========================
+   ハンバーガーメニュー
+========================= */
+
+/* PCではボタンを隠す */
+.hamburger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px 0;
+    border-radius: 3px;
+    background: #333;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* スマートフォン表示 */
+@media screen and (max-width: 768px) {
+    header {
+        position: relative;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgb(255, 246, 246);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+        list-style: none;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 14px 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 15px;
+    }
+
+    header .logo {
+        font-size: clamp(24px, 7vw, 36px);
+        margin: 0;
+        min-width: 0;
+        flex: 1;
+    }
+
+    header .hamburger {
+        display: block;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        margin-left: 10px;
+        position: relative;
+        z-index: 1001;
+    }
+
+    header nav {
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+
+.open-share-form {
+    margin-top: 18px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #ffb8c6;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.open-share-form:hover {
+    background: #ffa4b7;
+}
+
+.share-form {
+    display: none;
+}
+
+.share-form.is-open {
+    display: block;
+}
